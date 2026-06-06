@@ -23,3 +23,9 @@ $routes->options('api/service-enquiry', static function () {
     return service('response')->setStatusCode(200);
 });
 $routes->post('api/service-enquiry', 'ServiceEnquiryController::store');
+
+$routes->options('api/admin/login', static function () {
+    return service('response')->setStatusCode(200);
+});
+
+$routes->post('api/admin/login', 'Admin\AuthController::login');
