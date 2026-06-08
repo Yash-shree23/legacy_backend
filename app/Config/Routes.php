@@ -29,3 +29,13 @@ $routes->options('api/admin/login', static function () {
 });
 
 $routes->post('api/admin/login', 'Admin\AuthController::login');
+
+// Partner Routes
+
+$routes->options('api/partners', static function () {
+    return service('response')->setStatusCode(200);
+});
+
+$routes->get('api/partners', 'Admin\PartnerController::index');
+$routes->post('api/partners', 'Admin\PartnerController::store');
+$routes->delete('api/partners/(:num)', 'Admin\PartnerController::delete/$1');
