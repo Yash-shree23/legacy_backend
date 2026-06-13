@@ -6,32 +6,31 @@ use CodeIgniter\Router\RouteCollection;
 
 $routes->get('/', 'Home::index');
 
+// ── Contact ──
 $routes->options('api/contact', static function () {
     return service('response')->setStatusCode(200);
 });
-
 $routes->post('api/contact', 'ContactController::store');
-$routes->get('test', function () {
-    return 'Route Working';
-    
-});
+
+// ── Consultation ──
 $routes->options('api/consultation', static function () {
     return service('response')->setStatusCode(200);
 });
 $routes->post('api/consultation', 'ConsultationController::store');
+
+// ── Service Enquiry ──
 $routes->options('api/service-enquiry', static function () {
     return service('response')->setStatusCode(200);
 });
 $routes->post('api/service-enquiry', 'ServiceEnquiryController::store');
 
+// ── Admin Login ──
 $routes->options('api/admin/login', static function () {
     return service('response')->setStatusCode(200);
 });
-
 $routes->post('api/admin/login', 'Admin\AuthController::login');
 
-// Partner Routes
-
+// ── Partners ──
 $routes->options('api/partners', static function () {
     return service('response')->setStatusCode(200);
 });
@@ -76,3 +75,4 @@ $routes->get(
     'api/enquiries',
     'Admin\DashboardController::allServiceEnquiries'
 );
+	
